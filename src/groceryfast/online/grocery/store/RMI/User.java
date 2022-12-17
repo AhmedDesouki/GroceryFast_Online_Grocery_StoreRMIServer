@@ -10,9 +10,9 @@ package groceryfast.online.grocery.store.RMI;
  * @author Ahmed Desouki
  */
 public class User {
-      String username;
-    String email; 
-    String password;
+    private String username;
+     private String email; 
+     private String password;
 
     
     public User() 

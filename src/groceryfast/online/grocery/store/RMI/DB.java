@@ -24,7 +24,12 @@ public class DB {
     
    public static MongoDatabase database;
     
-   MongoCollection<Document> collection1;
+   MongoCollection<Document> collectionCustomer;
+   MongoCollection<Document> collectionAdmin;
+   MongoCollection<Document> collectionDeliveryWorker;
+    MongoCollection<Document> collectionWarehouseManager;
+   MongoCollection<Document> collectionsubscribers;
+   MongoCollection<Document> collectionVoucher;
    
    public DB(){
     try{
@@ -32,8 +37,12 @@ public class DB {
              MongoClient mongoClient = MongoClients.create(uri);
              
              MongoDatabase database = mongoClient.getDatabase("Cluster0");
-             collection1 = database.getCollection("User");
-             
+             collectionCustomer = database.getCollection("customer");
+             collectionAdmin = database.getCollection("admin");
+              collectionDeliveryWorker = database.getCollection("deliveryworker");
+                collectionWarehouseManager = database.getCollection("warehousemanager");
+             collectionsubscribers = database.getCollection("subscribers");
+             collectionVoucher=database.getCollection("voucher");
              System.out.println("connnected");
          } 
     catch(Exception e){
@@ -41,9 +50,9 @@ public class DB {
          }
    }
    
-   public void insertUser(User u) 
-    {
-        collection1.insertOne(Document.parse(gson.toJson(u)));
-        System.out.println("User is inserted.");
-    }
+//   public void insertUser(User u) 
+//    {
+//        collection1.insertOne(Document.parse(gson.toJson(u)));
+//        System.out.println("User is inserted.");
+//    }
 }

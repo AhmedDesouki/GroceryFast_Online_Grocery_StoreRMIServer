@@ -29,8 +29,20 @@ public class GroceryFast_Online_Grocery_StoreRMIServer {
         
         DB db = new DB();
          User u=new User("test","Ahmed@gmail.com","password");
-        db.insertUser(u);
+       // db.insertUser(u);
 //        
+        Voucher v=new Voucher();
+         Customer c=new Customer("Desoukii","alooo@gmail.com","password","cairo");
+         Voucher voucher=new Voucher("DFO123","12/10/2023");
+//        db.insertUser(c);
+          //v.addObserver(c);
+         //v.removeObserver(c);
+          //voucher.addVoucher(voucher);
+          //voucher.removeVoucher(voucher);
+          
+         
+          
+        
 //         try {
 //            // My remote object [Skeleton]
 //            FacadeInterface facade = new UserFacade();
@@ -45,5 +57,8 @@ public class GroceryFast_Online_Grocery_StoreRMIServer {
 //           System.out.println("Exception occured here ");
 //        }   
 //    }
+//           System.out.println("Exception occured facade");
+//        }   
+    }
     
-}}
+}

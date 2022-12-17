@@ -5,19 +5,10 @@
  */
 package groceryfast.online.grocery.store.RMI;
 
-import java.util.Optional;
-
 /**
  *
  * @author Ahmed Desouki
  */
-
-public interface UserDataMapper {
-     Optional<User> find(int userID);
-
-        void insertSubscriber(Customer  customer);
-
-        void updateOne(Customer  customer) ;
-
-        void deleteSubscriber(String username);
+public interface Observer {
+        String update(String message);
 }

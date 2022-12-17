@@ -20,7 +20,20 @@ public class Customer extends User{
         super(username, email, password);
         this.address=address;
     }
-
+public void login(){
+        UserDataMapperIMP udm = new UserDataMapperIMP();
+        if(udm.find(this.getUsername()) != null){
+            System.out.println("Login successful");
+        }
+        else{
+            System.out.println("User doesn't exist");
+        }
+    }
+    
+    public void register(){
+        UserDataMapperIMP udm = new UserDataMapperIMP();
+        udm.insertCustomer(this);
+    }
    
       
       

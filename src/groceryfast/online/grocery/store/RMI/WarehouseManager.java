@@ -17,5 +17,13 @@ public class WarehouseManager extends User{
     public WarehouseManager(String username, String email, String password) {
         super(username, email, password);
     }
-    
+    public void login(){
+        UserDataMapperIMP udm = new UserDataMapperIMP();
+        if(udm.findWarehouse(this.getUsername()) != null){
+            System.out.println("Login successful");
+        }
+        else{
+            System.out.println("User doesn't exist");
+        }
+    }
 }

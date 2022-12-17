@@ -27,6 +27,16 @@ public class Admin extends User{
         }
             return instance;
     }
+   
+   public void login(){
+        UserDataMapperIMP udm = new UserDataMapperIMP();
+        if(udm.findAdmin(this.getUsername()) != null){
+            System.out.println("Login successful");
+        }
+        else{
+            System.out.println("User doesn't exist");
+        }
+    }
 
    
      

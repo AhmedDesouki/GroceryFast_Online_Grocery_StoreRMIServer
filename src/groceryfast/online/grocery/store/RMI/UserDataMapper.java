@@ -6,6 +6,7 @@
 package groceryfast.online.grocery.store.RMI;
 
 import java.util.Optional;
+import org.bson.Document;
 
 /**
  *
@@ -13,11 +14,19 @@ import java.util.Optional;
  */
 
 public interface UserDataMapper {
-     Optional<User> find(int userID);
+    public Document find(String username);
+    
+    public Document findAdmin(String username);
+    
+    public Document findDelivery(String username);
+    
+    public Document findWarehouse(String username);
+    
+    void insertSubscriber(Customer customer);
 
-        void insertSubscriber(Customer  customer);
+    void updateOne(Customer  customer) ;
 
-        void updateOne(Customer  customer) ;
-
-        void deleteSubscriber(String username);
+    void deleteSubscriber(String username);
+    
+    void insertCustomer(Customer customer);
 }

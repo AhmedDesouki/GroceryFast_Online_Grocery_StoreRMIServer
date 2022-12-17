@@ -5,6 +5,9 @@
  */
 package groceryfast.online.grocery.store.RMI;
 
+import java.util.ArrayList;
+import org.bson.Document;
+
 /**
  *
  * @author Ahmed Desouki
@@ -12,4 +15,5 @@ package groceryfast.online.grocery.store.RMI;
 public interface ItemDataMapper {
     void insertItem(Item item,warehouse w);
     void deleteItem(int itemID);
+    ArrayList<Document> findItemByCart(Cart cart);
 }

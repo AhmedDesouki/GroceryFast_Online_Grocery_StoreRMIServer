@@ -14,6 +14,8 @@ import org.bson.Document;
  */
 
 public interface UserDataMapper {
+    public Document findCustomerByCart(Cart cart);
+    
     public Document find(String username);
     
     public Document findAdmin(String username);

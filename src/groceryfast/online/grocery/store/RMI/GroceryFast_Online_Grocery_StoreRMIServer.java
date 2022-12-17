@@ -33,26 +33,33 @@ public class GroceryFast_Online_Grocery_StoreRMIServer {
        // db.insertUser(u);
 //        
         Voucher v=new Voucher();
-         Customer c=new Customer("Desoukii","alooo@gmail.com","password","cairo");
-         Voucher voucher=new Voucher("DFO123","12/10/2023");
-         Item item=new Item(33,"Pepsi","drink",10);
-         Item item2=new Item(34,"cola","drink",15);
-          Item item3=new Item(35,"water","drink",5);
-          ArrayList<Item> items = new ArrayList<Item>();
-          items.add(item);
-          items.add(item2);
-          items.add(item3);
-         warehouse w=new warehouse(12,"zezo","madenty",300,items);
-         w.addwarehouse(w);
+        Item i=new Item();
+        Customer c=new Customer("Desoukii","alooo@gmail.com","password","cairo");
+        Voucher voucher=new Voucher("DFO123","12/10/2023");
+         
+        warehouse w=new warehouse(12,"zezo","madenty",300);
+        warehouse w2=new warehouse(13,"mero","masr el gdeda",200);
+         
+         Item item=new Item(33,"Pepsi","drink",10,w);
+         Item item2=new Item(34,"cola","drink",15,w2);
+          Item item3=new Item(35,"water","drink",5,w);
+          Item item4=new Item(35,"ae 5ara","deko",100,w);
+//          ArrayList<Item> items = new ArrayList<Item>();
+//          items.add(item);
+//          items.add(item2);
+//          items.add(item3);
+//       
+        // w.addwarehouse(w2);
          
 //        db.insertUser(c);
           //v.addObserver(c);
          //v.removeObserver(c);
           //voucher.addVoucher(voucher);
           //voucher.removeVoucher(voucher);
-         //item.AddItem(item2);
-          //item.AddItem(item3);
-         
+          //item.AddItem(item2,w);
+          //item.AddItem(item3,w2);
+          // item.AddItem(item4,w);
+         i.RemoveItem(item4);
           
         
 //         try {

@@ -22,17 +22,17 @@ public class warehouse {
     private String Warehousename;
     private String Location;
     private int itemcapacity;
-    private ArrayList <Item> listofitems = new ArrayList();
+    //private ArrayList <Item> listofitems = new ArrayList();
 
     public warehouse() {
     }
 
-    public warehouse(int warehouseID, String Warehousename, String Location, int itemcapacity,ArrayList<Item> listofitems) {
+    public warehouse(int warehouseID, String Warehousename, String Location, int itemcapacity) {
         this.warehouseID = warehouseID;
         this.Warehousename = Warehousename;
         this.Location = Location;
         this.itemcapacity = itemcapacity;
-        this.listofitems=listofitems;
+       // this.listofitems=listofitems;
         
     }
 
@@ -61,9 +61,9 @@ public class warehouse {
         this.itemcapacity = itemcapacity;
     }
 
-    public void setListofitems(ArrayList<Item> listofitems) {
-        this.listofitems = listofitems;
-    }
+//    public void setListofitems(ArrayList<Item> listofitems) {
+//        this.listofitems = listofitems;
+//    }
 
     public int getWarehouseID() {
         return warehouseID;
@@ -81,9 +81,9 @@ public class warehouse {
         return itemcapacity;
     }
 
-    public ArrayList<Item> getListofitems() {
-        return listofitems;
-    }
+//    public ArrayList<Item> getListofitems() {
+//        return listofitems;
+//    }
     
     public void addwarehouse(warehouse w){
        WarehouseDataMapperIMP DataMapperWarehouse=new WarehouseDataMapperIMP();

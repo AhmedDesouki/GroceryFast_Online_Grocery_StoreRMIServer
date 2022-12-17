@@ -10,5 +10,6 @@ package groceryfast.online.grocery.store.RMI;
  * @author Ahmed Desouki
  */
 public interface ItemDataMapper {
-    void insertItem(Item item);
+    void insertItem(Item item,warehouse w);
+    void deleteItem(int itemID);
 }

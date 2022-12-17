@@ -17,16 +17,18 @@ public class Item {
     private String itemname;
     private String Description;
     private int quantity;
+    private warehouse warehousee; 
     //private ArrayList<Item> listofitems = new ArrayList();
 
     public Item() {
     }
 
-    public Item(int itemID, String itemname, String Description, int quantity) {
+    public Item(int itemID, String itemname, String Description, int quantity,warehouse warehousee) {
         this.itemID = itemID;
         this.itemname = itemname;
         this.Description = Description;
         this.quantity = quantity;
+        this.warehousee=warehousee;
     }
 
     public int getItemID() {
@@ -68,14 +70,18 @@ public class Item {
 //    public void setListofitems(ArrayList<Item> listofitems) {
 //        this.listofitems = listofitems;
 //    }
-    public void AddItem(Item T){
+    public void AddItem(Item T,warehouse w){
         //listofitems.add(T);
         ItemDataMapperIMP DataMapperItem=new ItemDataMapperIMP();
-        DataMapperItem.insertItem(T);
+         
+        DataMapperItem.insertItem(T,w);
         System.out.println("Item is added successfully");
     }
     public void RemoveItem(Item T1){
-        //listofitems.remove(T1);
+      
+           ItemDataMapperIMP DataMapperItem=new ItemDataMapperIMP();
+           DataMapperItem.deleteItem(T1.getItemID());
            System.out.println("Item is removed successfully");
+          
     }
 }

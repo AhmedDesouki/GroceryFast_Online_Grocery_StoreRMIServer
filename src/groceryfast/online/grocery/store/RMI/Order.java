@@ -19,7 +19,7 @@ public class Order {
     private String Date;
     private OrderState CurrentState;
     private ArrayList <Item> items;
-    private int i;
+    private int i1;
     
 
     //Constructor:

@@ -17,5 +17,13 @@ public class DeliveryWorker extends User{
     public DeliveryWorker(String username, String email, String password) {
         super(username, email, password);
     }
-    
+    public void login(){
+        UserDataMapperIMP udm = new UserDataMapperIMP();
+        if(udm.findDelivery(this.getUsername()) != null){
+            System.out.println("Login successful");
+        }
+        else{
+            System.out.println("User doesn't exist");
+        }
+    }
 }

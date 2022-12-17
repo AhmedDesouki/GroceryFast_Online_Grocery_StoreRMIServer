@@ -11,16 +11,14 @@ package groceryfast.online.grocery.store.RMI;
  * @author Ahmed Desouki
  */
 public class Admin extends User{
-     static Admin instance; 
-     private String address;
+    static Admin instance; 
+    private String address;
      
-     private Admin() 
-    {
+    private Admin(){
         super("Admin",  "Admin@bue.com",  "1234");  
     }
 
-   public static Admin getInstance()
-    {
+    public static Admin getInstance(){
         if(instance == null)
         {
             instance = new Admin();
@@ -29,5 +27,13 @@ public class Admin extends User{
     }
 
    
-     
+    public void login(){
+        UserDataMapperIMP udm = new UserDataMapperIMP();
+        if(udm.findAdmin(this.getUsername()) != null){
+            System.out.println("Login successful");
+        }
+        else{
+            System.out.println("User doesn't exist");
+        }
+    }
 }

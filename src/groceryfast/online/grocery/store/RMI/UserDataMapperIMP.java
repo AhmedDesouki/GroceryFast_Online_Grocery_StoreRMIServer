@@ -17,12 +17,32 @@ import org.bson.conversions.Bson;
  * @author Ahmed Desouki
  */
 public class UserDataMapperIMP implements UserDataMapper {
-         DB db=new DB();
+    DB db=new DB();
+    
     @Override
-    public Optional<User> find(int userID) {
-             return null;
+    public Document find(String username) {
+       Document d = db.collectionCustomer.find(eq("username", username)).first();
+       return d;
     }
-
+    
+    @Override
+    public Document findAdmin(String username) {
+       Document d = db.collectionAdmin.find(eq("username", username)).first();
+       return d;
+    }
+    
+    @Override
+    public Document findDelivery(String username) {
+       Document d = db.collectionDeliveryWorker.find(eq("username", username)).first();
+       return d;
+    }
+    
+    @Override
+    public Document findWarehouse(String username) {
+       Document d = db.collectionWarehouseManager.find(eq("username", username)).first();
+       return d;
+    }
+    
     @Override
     public void insertSubscriber(Customer  customer) {
         db.collectionsubscribers.insertOne(Document.parse(gson.toJson(customer)));
@@ -34,13 +54,19 @@ public class UserDataMapperIMP implements UserDataMapper {
         
     }
 
-    @Override
-    
+    @Override    
     //Delete fron subscribers 
     public void deleteSubscriber(String username) {
         //Bson query = eq("username", "Desoukii");
         db.collectionsubscribers.deleteOne(Filters.eq("username", username));
          System.out.println("subscriber is deleted.");
     }
+
+    @Override
+    public void insertCustomer(Customer customer) {
+        db.collectionCustomer.insertOne(Document.parse(gson.toJson(customer)));
+        System.out.println("customer is inserted.");
+    }
+    
     
 }

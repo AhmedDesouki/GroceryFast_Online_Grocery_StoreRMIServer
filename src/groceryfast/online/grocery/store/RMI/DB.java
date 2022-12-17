@@ -27,7 +27,7 @@ public class DB {
    MongoCollection<Document> collectionCustomer;
    MongoCollection<Document> collectionAdmin;
    MongoCollection<Document> collectionDeliveryWorker;
-    MongoCollection<Document> collectionWarehouseManager;
+   MongoCollection<Document> collectionWarehouseManager;
    MongoCollection<Document> collectionsubscribers;
    MongoCollection<Document> collectionVoucher;
    

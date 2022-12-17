@@ -27,16 +27,22 @@ public class warehouse {
     public warehouse() {
     }
 
-    public warehouse(int warehouseID, String Warehousename, String Location, int itemcapacity) {
+    public warehouse(int warehouseID, String Warehousename, String Location, int itemcapacity,ArrayList<Item> listofitems) {
         this.warehouseID = warehouseID;
         this.Warehousename = Warehousename;
         this.Location = Location;
         this.itemcapacity = itemcapacity;
+        this.listofitems=listofitems;
+        
     }
+
+
 
     warehouse(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+ 
     
 
     public void setWarehouseID(int warehouseID) {
@@ -77,6 +83,12 @@ public class warehouse {
 
     public ArrayList<Item> getListofitems() {
         return listofitems;
+    }
+    
+    public void addwarehouse(warehouse w){
+       WarehouseDataMapperIMP DataMapperWarehouse=new WarehouseDataMapperIMP();
+        DataMapperWarehouse.insertOne(w);
+        System.out.println("warehouse is added successfully");
     }
     
 }

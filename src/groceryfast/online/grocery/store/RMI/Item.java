@@ -17,7 +17,7 @@ public class Item {
     private String itemname;
     private String Description;
     private int quantity;
-    private ArrayList<Item> listofitems = new ArrayList();
+    //private ArrayList<Item> listofitems = new ArrayList();
 
     public Item() {
     }
@@ -45,9 +45,9 @@ public class Item {
         return quantity;
     }
 
-    public ArrayList<Item> getListofitems() {
-        return listofitems;
-    }
+//    public ArrayList<Item> getListofitems() {
+//        return listofitems;
+//    }
 
     public void setItemID(int itemID) {
         this.itemID = itemID;
@@ -65,15 +65,17 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public void setListofitems(ArrayList<Item> listofitems) {
-        this.listofitems = listofitems;
-    }
+//    public void setListofitems(ArrayList<Item> listofitems) {
+//        this.listofitems = listofitems;
+//    }
     public void AddItem(Item T){
-        listofitems.add(T);
+        //listofitems.add(T);
+        ItemDataMapperIMP DataMapperItem=new ItemDataMapperIMP();
+        DataMapperItem.insertItem(T);
         System.out.println("Item is added successfully");
     }
     public void RemoveItem(Item T1){
-        listofitems.remove(T1);
+        //listofitems.remove(T1);
            System.out.println("Item is removed successfully");
     }
 }

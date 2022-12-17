@@ -30,7 +30,9 @@ public class DB {
     MongoCollection<Document> collectionWarehouseManager;
    MongoCollection<Document> collectionsubscribers;
    MongoCollection<Document> collectionVoucher;
-   
+   MongoCollection<Document> collectionWarehouse;
+      MongoCollection<Document> collectionItems;
+
    public DB(){
     try{
              String uri = "mongodb+srv://GroceryFast:GroceryFast123@cluster0.abv1pkk.mongodb.net/test";
@@ -41,8 +43,10 @@ public class DB {
              collectionAdmin = database.getCollection("admin");
               collectionDeliveryWorker = database.getCollection("deliveryworker");
                 collectionWarehouseManager = database.getCollection("warehousemanager");
+                collectionWarehouse = database.getCollection("warehouse");
              collectionsubscribers = database.getCollection("subscribers");
              collectionVoucher=database.getCollection("voucher");
+             collectionItems=database.getCollection("items");
              System.out.println("connnected");
          } 
     catch(Exception e){

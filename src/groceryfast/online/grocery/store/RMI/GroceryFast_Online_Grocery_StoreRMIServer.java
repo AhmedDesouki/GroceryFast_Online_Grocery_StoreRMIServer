@@ -7,9 +7,14 @@ package groceryfast.online.grocery.store.RMI;
 
 import groceryfast.online.grocery.store.RMI.StrategyPattern.PaymentService;
 import groceryfast.online.grocery.store.RMI.StrategyPattern.Visa;
+import java.rmi.AlreadyBoundException;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import rmi.CustomerInterface;
 
 /**
  *
@@ -20,38 +25,46 @@ public class GroceryFast_Online_Grocery_StoreRMIServer {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RemoteException, AlreadyBoundException {
         PaymentService paymentservice = new PaymentService();
         paymentservice.setStrategy(new Visa());
         paymentservice.processOrder();
+        
+        
+        
+         Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
+        mongoLogger.setLevel(Level.SEVERE);
 
-        Cart c2 = new Cart(222);
-        c2.insetCart();
-
-        Customer c = new Customer("krem", "krem@gmail.com", "password", "cairo", c2, paymentservice);
-        UserDataMapperIMP udm = new UserDataMapperIMP();
-        udm.insertCustomer(c);
-
-        warehouse w = new warehouse(18, "zi-warehouse", "madenty", 4600);
-        WarehouseDataMapperIMP wdm = new WarehouseDataMapperIMP();
-        wdm.insertOne(w);
-
-        Item i1 = new Item(200, "meat1", "manga meat1", 200, w, c2, 20);
-        Item i2 = new Item(300, "bread1", "manga bread1", 300, w, c2, 40);
-        Item i3 = new Item(400, "drink1", "manga drink1", 400, w, c2, 50);
-        ItemDataMapperIMP idm = new ItemDataMapperIMP();
-        idm.insertItem(i1, w);
-        idm.insertItem(i2, w);
-        idm.insertItem(i3, w);
-
-        Order o = new Order(20, 30, "10-10-10", c.getCart());
-        o.PlaceOrder();
+        DB db = new DB();
+        
+        
+//        Cart c2 = new Cart(222);
+//        c2.insetCart();
+//
+//        Customer c = new Customer("krem", "krem@gmail.com", "password", "cairo", c2, paymentservice);
+//        UserDataMapperIMP udm = new UserDataMapperIMP();
+//        udm.insertCustomer(c);
+//
+//        warehouse w = new warehouse(18, "zi-warehouse", "madenty", 4600);
+//        WarehouseDataMapperIMP wdm = new WarehouseDataMapperIMP();
+//        wdm.insertOne(w);
+//
+//        Item i1 = new Item(200, "meat1", "manga meat1", 200, w, c2, 20);
+//        Item i2 = new Item(300, "bread1", "manga bread1", 300, w, c2, 40);
+//        Item i3 = new Item(400, "drink1", "manga drink1", 400, w, c2, 50);
+//        ItemDataMapperIMP idm = new ItemDataMapperIMP();
+//        idm.insertItem(i1, w);
+//        idm.insertItem(i2, w);
+//        idm.insertItem(i3, w);
+//
+//        Order o = new Order(20, 30, "10-10-10", c.getCart());
+//        o.PlaceOrder();
 
 //        PaymentService paymentservice = new PaymentService();
 //        paymentservice.setStrategy(new Visa());
 //        paymentservice.processOrder();
 //
-//        DB db = new DB();
+
 //        User u = new User("test", "Ahmed@gmail.com", "password");
 //        // db.insertUser(u);
 ////        
@@ -82,6 +95,23 @@ public class GroceryFast_Online_Grocery_StoreRMIServer {
         //item.AddItem(item3,w2);
         // item.AddItem(item4,w);
         //i.RemoveItem(item4);
+        
+        
+        CustomerInterface si=new Customer();
+        
+         // An RMI Registry initialized on port 1099
+        Registry r = LocateRegistry.createRegistry(1099);
+        
+        // Our remote object g is binded to the name "grade"
+        r.bind("signup", si);
+       
+        
+          System.out.println("The server is ready");
+        
+        
+        
+        
+        
 //         try {
 //            // My remote object [Skeleton]
 //            FacadeInterface facade = new UserFacade();

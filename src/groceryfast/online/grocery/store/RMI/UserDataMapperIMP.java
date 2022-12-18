@@ -25,7 +25,7 @@ public class UserDataMapperIMP implements UserDataMapper {
     @Override
     public Document findCustomerByCart(Cart cart) {
         FindIterable<Document> iterDoc = db.collectionCustomer.find();
-        Document d;
+        Document d=null;
         Iterator it = iterDoc.iterator();
         while (it.hasNext()) {
             d = (Document) it.next();

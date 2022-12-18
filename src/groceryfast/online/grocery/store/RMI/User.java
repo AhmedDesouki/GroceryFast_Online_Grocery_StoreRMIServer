@@ -5,6 +5,8 @@
  */
 package groceryfast.online.grocery.store.RMI;
 
+import java.rmi.server.UnicastRemoteObject;
+
 /**
  *
  * @author Ahmed Desouki
